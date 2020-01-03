@@ -1,6 +1,7 @@
 "
 " ~/.vim/vimrc
 "
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 syntax enable
@@ -17,16 +18,18 @@ filetype plugin on     " make sure plugins are enabled
 augroup configgroup
   autocmd!
   autocmd BufNewFile,BufRead *.ejs set filetype=html
-  autocmd FileType css set ts=2 sw=2
-  autocmd FileType gitcommit set cc+=51 tw=72
-  autocmd FileType html set ts=2 sw=2
-  autocmd FileType ruby set ts=2 sw=2
+  autocmd FileType css set tabstop=2 shiftwidth=2
+  autocmd FileType gitcommit set colorcolumn+=51 textwidth=72
+  " https://csswizardry.com/2017/03/configuring-git-and-vim/#update-2017-04-09
+  autocmd FileType html set tabstop=2 shiftwidth=2
+  autocmd FileType ruby set tabstop=2 shiftwidth=2
 augroup END
 
 if !has('win32')
   let g:indentLine_char='░'             " change indentLine character
   set list                              " show <Tab> as ^I and end-of-line as $
   set listchars=tab:»-,trail:·,eol:¬    " list of strings used for list mode
+  " https://csswizardry.com/2017/05/writing-tidy-code/#invisibles
 endif
 
 " OPTIONS "{{{
@@ -68,8 +71,8 @@ function! TrimWhitespace()
   %s/\s\+$//e
   call winrestview(l:save)
 endfunction
-
 :noremap <Leader>w :call TrimWhitespace()<CR>
+" https://vi.stackexchange.com/a/456
 
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
@@ -81,8 +84,8 @@ function! TwiddleCase(str)
   endif
   return result
 endfunction
-
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+" https://vim.fandom.com/wiki/Switching_case_of_characters#Twiddle_case
 "}}}
 
-" vim: set fdl=0 fdm=marker:
+" vim: set foldlevel=0 foldmethod=marker:
