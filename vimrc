@@ -18,11 +18,11 @@ filetype plugin on     " make sure plugins are enabled
 augroup configgroup
   autocmd!
   autocmd BufNewFile,BufRead *.ejs set filetype=html
-  autocmd FileType css set ts=2 sw=2
-  autocmd FileType gitcommit set cc+=51 tw=72
+  autocmd FileType css set tabstop=2 shiftwidth=2
+  autocmd FileType gitcommit set colorcolumn+=51 textwidth=72
   " https://csswizardry.com/2017/03/configuring-git-and-vim/#update-2017-04-09
-  autocmd FileType html set ts=2 sw=2
-  autocmd FileType ruby set ts=2 sw=2
+  autocmd FileType html set tabstop=2 shiftwidth=2
+  autocmd FileType ruby set tabstop=2 shiftwidth=2
 augroup END
 
 if !has('win32')
@@ -88,4 +88,4 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 " https://vim.fandom.com/wiki/Switching_case_of_characters#Twiddle_case
 "}}}
 
-" vim: set fdl=0 fdm=marker:
+" vim: set foldlevel=0 foldmethod=marker:
