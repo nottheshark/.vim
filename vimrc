@@ -38,13 +38,14 @@ set background=dark    " "dark" or "light"; the background color brightness
 set backspace=indent,eol,start     " specifies what <BS>, CTRL-W, etc. can do in
                                    " Insert mode
 set colorcolumn=+1     " columns to highlight
+set conceallevel=0     " controls whether concealable text is hidden
 set expandtab          " expand <Tab> to spaces in Insert mode
 set foldenable         " set to display all folds open
 set foldlevelstart=10  " value for 'foldlevel' when starting to edit a file
 set foldmethod=indent  " folding type: "manual", "indent", "expr", "marker" or
                        " "syntax"
 set hidden             " don't unload a buffer when no longer shown in a window
-set history=200        " how many command lines are remembered 
+set history=200        " how many command lines are remembered
 set hlsearch           " highlight all matches for the last used search pattern
 set incsearch          " show match for partly typed search command
 set lazyredraw         " don't redraw while executing macros
